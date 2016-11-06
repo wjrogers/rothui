@@ -70,7 +70,7 @@ L.C.colors.healthbar = {
 
 -- fonts
 L.C.font = {
-  family = STANDARD_TEXT_FONT,
-  size = 14,
-  outline = "OUTLINE"
+  family = "Interface\\AddOns\\tekticles\\Calibri.ttf",
+  size = 12,
+  outline = ""
 }
