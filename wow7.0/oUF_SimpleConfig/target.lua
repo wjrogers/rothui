@@ -15,7 +15,7 @@ local A, L = ...
 L.C.target = {
   enabled = true,
   size = {265,26},
-  point = {"LEFT",UIParent,"CENTER",120,-120},
+  point = {"LEFT",UIParent,"CENTER",180,-180},
   scale = 1*L.C.globalscale,
   --healthbar
   healthbar = {
@@ -47,7 +47,7 @@ L.C.target = {
   powerbar = {
     enabled = true,
     size = {265,5},
-    point = {"TOP","BOTTOM",0,-4}, --if no relativeTo is given the frame base will be the relativeTo reference
+    point = L.C.points.powerbar, --if no relativeTo is given the frame base will be the relativeTo reference
     colorPower = true,
   },
   --raidmark
@@ -58,7 +58,7 @@ L.C.target = {
   },
   --castbar
   castbar = {
-    enabled = true,
+    enabled = false,
     size = {265,26},
     point = {"BOTTOM","TOP",0,14},
     name = {
@@ -80,7 +80,7 @@ L.C.target = {
     },
   },
   buffs = {
-    enabled = true,
+    enabled = false,
     point = {"BOTTOMLEFT","RIGHT",10,5},
     num = 32,
     cols = 8,
@@ -92,7 +92,7 @@ L.C.target = {
     disableCooldown = true,
   },
   debuffs = {
-    enabled = true,
+    enabled = false,
     point = {"TOPLEFT","RIGHT",10,-5},
     num = 40,
     cols = 8,

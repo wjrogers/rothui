@@ -74,3 +74,8 @@ L.C.font = {
   size = 12,
   outline = ""
 }
+
+-- common layout details
+L.C.points = {
+  powerbar = {"TOP","BOTTOM",0,0},
+}

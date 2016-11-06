@@ -15,7 +15,7 @@ local A, L = ...
 L.C.player = {
   enabled = true,
   size = {265,26},
-  point = {"RIGHT",UIParent,"CENTER",-120,-120},
+  point = {"RIGHT",UIParent,"CENTER",-180,-180},
   scale = 1*L.C.globalscale,
   --healthbar
   healthbar = {
@@ -43,7 +43,7 @@ L.C.player = {
   powerbar = {
     enabled = true,
     size = {265,5},
-    point = {"TOP","BOTTOM",0,-4}, --if no relativeTo is given the frame base will be the relativeTo reference
+    point = L.C.points.powerbar, --if no relativeTo is given the frame base will be the relativeTo reference
     colorPower = true,
     power = {
       enabled = false,
@@ -62,7 +62,7 @@ L.C.player = {
   castbar = {
     enabled = true,
     size = {265,26},
-    point = {"BOTTOM","TOP",0,14},
+    point = {"CENTER",UIParent,"CENTER",0,-180},
     name = {
       enabled = true,
       points = {
@@ -98,6 +98,19 @@ L.C.player = {
     enabled = true,
     size = {130,5},
     point = {"BOTTOMLEFT","TOPLEFT",0,4},
+  },
+  --debuffs
+  debuffs = {
+    enabled = true,
+    point = {"BOTTOMRIGHT","TOPRIGHT",-2,-2},
+    num = 5,
+    cols = 5,
+    size = 12,
+    spacing = 3,
+    initialAnchor = "BOTTOMRIGHT",
+    growthX = "LEFT",
+    growthY = "DOWN",
+    disableCooldown = true,
   },
   --buffs
   buffs = {

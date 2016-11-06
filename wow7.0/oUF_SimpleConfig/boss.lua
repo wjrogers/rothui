@@ -14,8 +14,8 @@ local A, L = ...
 
 L.C.boss = {
   enabled = true,
-  size = {130,26},
-  point = {"TOP",Minimap,"BOTTOM",0,-35}, --point of first boss frame
+  size = {180,26},
+  point = {"TOPLEFT","oUF_SimpleTarget","BOTTOMLEFT",0,-60}, --point of first boss frame
   scale = 1*L.C.globalscale,
   --healthbar
   healthbar = {
@@ -38,14 +38,14 @@ L.C.boss = {
   --powerbar
   powerbar = {
     enabled = true,
-    size = {130,5},
-    point = {"TOP","BOTTOM",0,-4}, --if no relativeTo is given the frame base will be the relativeTo reference
+    size = {180,5},
+    point = L.C.points.powerbar, --if no relativeTo is given the frame base will be the relativeTo reference
     colorPower = true,
   },
   --altpowerbar
   altpowerbar = {
     enabled = true,
-    size = {130,5},
+    size = {180,5},
     point = {"BOTTOMLEFT","TOPLEFT",0,4},
   },
   --raidmark
@@ -56,8 +56,8 @@ L.C.boss = {
   },
   --castbar
   castbar = {
-    enabled = true,
-    size = {130,26},
+    enabled = false,
+    size = {180,26},
     point = {"TOP","BOTTOM",0,-14},
     name = {
       enabled = true,
@@ -75,7 +75,7 @@ L.C.boss = {
   },
   --debuffs
   debuffs = {
-    enabled = true,
+    enabled = false,
     point = {"TOPLEFT","BOTTOMLEFT",0,-14},
     num = 5,
     cols = 5,
@@ -90,6 +90,6 @@ L.C.boss = {
     point = "TOP",
     relativePoint = "BOTTOM", --relativeTo will be the boss frame preceding
     xOffset = 0,
-    yOffset = -50,
+    yOffset = -20,
   },
 }
