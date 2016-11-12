@@ -27,20 +27,21 @@ L.C.backdrop = {
   edgeColor = {0,0,0,0.8},
   tile = false,
   tileSize = 0,
-  inset = 5,
+  inset = 2,
   edgeSize = 5,
   insets = {
-    left = 5,
-    right = 5,
-    top = 5,
-    bottom = 5,
+    left = 0,
+    right = 0,
+    top = 0,
+    bottom = 0,
   },
 }
 
 --textures
 L.C.textures = {
-  statusbar = L.C.mediapath.."statusbar",
+  statusbar = [[Interface\Addons\Skada\media\statusbar\normTex]],
   statusbarBG = L.C.mediapath.."statusbar",
+  statusbarPower = L.C.mediapath.."statusbar_power",
   absorb = L.C.mediapath.."absorb",
   aura = L.C.mediapath.."square",
   split = L.C.mediapath.."split",
@@ -71,7 +72,7 @@ L.C.colors.healthbar = {
 -- fonts
 L.C.font = {
   family = "Interface\\AddOns\\tekticles\\Calibri.ttf",
-  size = 12,
+  size = 13,
   outline = ""
 }
 
