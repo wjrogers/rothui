@@ -67,6 +67,20 @@ L.C.party = {
     growthY = "DOWN",
     disableCooldown = true,
   },
+  --buffs
+  buffs = {
+    enabled = true,
+    point = {"RIGHT","LEFT",-5,0},
+    num = 5,
+    cols = 5,
+    size = 26,
+    spacing = 5,
+    initialAnchor = "TOPRIGHT",
+    growthX = "LEFT",
+    growthY = "DOWN",
+    disableCooldown = false,
+    filter = "HELPFUL|PLAYER",
+  },
   setup = {
     template = nil,
     visibility = "custom [group:party,nogroup:raid] show; hide",
