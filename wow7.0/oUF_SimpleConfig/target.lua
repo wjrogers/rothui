@@ -22,6 +22,7 @@ L.C.target = {
     --health and absorb bar cannot be disabled, they match the size of the frame
     colorTapping = true,
     colorDisconnected = true,
+    colorDispel = true,
     colorClass = true,
     colorReaction = true,
     colorHealth = true,

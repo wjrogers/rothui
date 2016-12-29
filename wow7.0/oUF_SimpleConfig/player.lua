@@ -21,6 +21,7 @@ L.C.player = {
   healthbar = {
     --health and absorb bar cannot be disabled, they match the size of the frame
     colorClass = true,
+    colorDispel = true,
     colorHealth = true,
     colorThreat = true,
     name = {

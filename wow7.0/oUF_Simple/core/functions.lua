@@ -239,6 +239,19 @@ local function CreateHealthBar(self)
   s.colorThreatInvers = self.cfg.healthbar.colorThreatInvers
   s.bg.multiplier = L.C.colors.bgMultiplier
   s.frequentUpdates = self.cfg.healthbar.frequentUpdates
+  --DispelHighlight from oUF_Phanx
+  if self.cfg.healthbar.colorDispel then
+    self.DispelHighlight = s:CreateTexture(nil, "OVERLAY")
+    self.DispelHighlight.filter = true
+    self.DispelHighlight.Override = function(element, debuffType, canDispel)
+      if canDispel then element:Show() else element:Hide() end
+    end
+    self.DispelHighlight:Hide()
+    self.DispelHighlight:SetAllPoints()
+    self.DispelHighlight:SetAlpha(0.9)
+    self.DispelHighlight:SetBlendMode("MOD")
+    self.DispelHighlight:SetTexture([[Interface\Addons\Skada\media\statusbar\Healbot]])
+  end
   --hooks
   s.PostUpdate = PostUpdateHealth
   if s.colorThreat then

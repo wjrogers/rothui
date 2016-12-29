@@ -6,6 +6,7 @@
 
 oUF\oUF.xml
 
+modules\DispelHighlight.lua
 modules\rAbsorbBar.lua
 modules\rClassBar.lua
 
