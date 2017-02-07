@@ -252,6 +252,11 @@ local function CreateHealthBar(self)
     self.DispelHighlight:SetBlendMode("MOD")
     self.DispelHighlight:SetTexture([[Interface\Addons\Skada\media\statusbar\Healbot]])
   end
+  --range
+  self.Range = {
+    insideAlpha = 1,
+    outsideAlpha = 0.4
+  }
   --hooks
   s.PostUpdate = PostUpdateHealth
   if s.colorThreat then
