@@ -91,6 +91,6 @@ L.C.boss = {
     point = "TOP",
     relativePoint = "BOTTOM", --relativeTo will be the boss frame preceding
     xOffset = 0,
-    yOffset = -20,
+    yOffset = 20,
   },
 }
