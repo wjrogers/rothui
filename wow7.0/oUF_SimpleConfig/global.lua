@@ -39,7 +39,7 @@ L.C.backdrop = {
 
 --textures
 L.C.textures = {
-  statusbar = [[Interface\Addons\Skada\media\statusbar\normTex]],
+  statusbar = L.C.mediapath.."normTex",
   statusbarBG = L.C.mediapath.."statusbar",
   statusbarPower = L.C.mediapath.."statusbar_power",
   absorb = L.C.mediapath.."absorb",
@@ -75,7 +75,7 @@ L.C.colors.power = {
 
 -- fonts
 L.C.font = {
-  family = "Interface\\AddOns\\tekticles\\Calibri.ttf",
+  family = "Interface\\AddOns\\gmFonts\\fonts\\Lato-Regular.ttf",
   size = 13,
   outline = ""
 }
