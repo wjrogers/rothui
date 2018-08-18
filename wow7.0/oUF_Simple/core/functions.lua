@@ -75,6 +75,7 @@ local function CreateBackdrop(self,relativeTo)
   bd:SetBackdrop(backdrop)
   bd:SetBackdropColor(unpack(backdrop.bgColor))
   bd:SetBackdropBorderColor(unpack(backdrop.edgeColor))
+  return bd
 end
 
 --CreateIcon
@@ -135,7 +136,7 @@ local function AltPowerBarOverride(self, event, unit, powerType)
   local ppcur = UnitPower(unit, ALTERNATE_POWER_INDEX, true)
   local _, r, g, b = UnitAlternatePowerTextureInfo(unit, 2)
   local _, ppmin = UnitAlternatePowerInfo(unit)
-  local el = self.AltPowerBar
+  local el = self.AlternativePower
   el:SetMinMaxValues(ppmin or 0, ppmax)
   el:SetValue(ppcur)
   if b then
@@ -160,6 +161,7 @@ local function CreateAltPowerBar(self)
   local s = CreateFrame("StatusBar", nil, self)
   s:SetStatusBarTexture(L.C.textures.statusbar)
   s:SetSize(unpack(self.cfg.altpowerbar.size))
+  s:SetOrientation(self.cfg.altpowerbar.orientation or "HORIZONTAL")
   SetPoint(s,self,self.cfg.altpowerbar.point)
   --bg
   local bg = s:CreateTexture(nil, "BACKGROUND")
@@ -181,6 +183,7 @@ local function CreateAbsorbBar(self)
   --statusbar
   local s = CreateFrame("StatusBar", nil, self.Health)
   s:SetAllPoints()
+  s:SetOrientation(self.cfg.healthbar.orientation or "HORIZONTAL")
   s:SetStatusBarTexture(L.C.textures.absorb)
   s:SetStatusBarColor(unpack(L.C.colors.healthbar.absorb))
   s:SetReverseFill(true)
@@ -195,6 +198,7 @@ local function CreateClassBar(self)
   local s = CreateFrame("StatusBar", nil, self)
   s:SetStatusBarTexture(L.C.textures.statusbar)
   s:SetSize(unpack(self.cfg.classbar.size))
+  s:SetOrientation(self.cfg.classbar.orientation or "HORIZONTAL")
   SetPoint(s,self,self.cfg.classbar.point)
   --bg
   local bg = s:CreateTexture(nil, "BACKGROUND")
@@ -216,6 +220,7 @@ local function CreateHealthBar(self)
   local s = CreateFrame("StatusBar", nil, self)
   s:SetStatusBarTexture(L.C.textures.statusbar)
   s:SetAllPoints()
+  s:SetOrientation(self.cfg.healthbar.orientation or "HORIZONTAL")
   if L.C.colors.healthbar and L.C.colors.healthbar.default then
     s:SetStatusBarColor(unpack(L.C.colors.healthbar.default))
   end
@@ -228,7 +233,13 @@ local function CreateHealthBar(self)
   end
   s.bg = bg
   --backdrop
-  CreateBackdrop(s)
+  s.bdf = CreateBackdrop(s)
+  if self.cfg.healthbar.debuffHighlight then
+    self.DebuffHighlight = s.bdf
+    self.DebuffHighlightBackdropBorder = true
+    self.DebuffHighlightAlpha = 1
+    self.DebuffHighlightFilter = self.cfg.healthbar.debuffHighlightFilter or false
+  end
   --attributes
   s.colorTapping = self.cfg.healthbar.colorTapping
   s.colorDisconnected = self.cfg.healthbar.colorDisconnected
@@ -269,6 +280,30 @@ local function CreateHealthBar(self)
 end
 L.F.CreateHealthBar = CreateHealthBar
 
+--CreateAdditionalPowerBar
+local function CreateAdditionalPowerBar(self)
+  if not self.cfg.addpowerbar or not self.cfg.addpowerbar.enabled then return end
+  print(self.unit,self.settings.template,"CreateAdditionalPowerBar")
+  --statusbar
+  local s = CreateFrame("StatusBar", nil, self)
+  s:SetStatusBarTexture(L.C.textures.statusbar)
+  s:SetSize(unpack(self.cfg.addpowerbar.size))
+  s:SetOrientation(self.cfg.addpowerbar.orientation or "HORIZONTAL")
+  SetPoint(s,self,self.cfg.addpowerbar.point)
+  --bg
+  local bg = s:CreateTexture(nil, "BACKGROUND")
+  bg:SetTexture(L.C.textures.statusbarBG)
+  bg:SetAllPoints()
+  s.bg = bg
+  --backdrop
+  CreateBackdrop(s)
+  --attributes
+  s.colorPower = self.cfg.addpowerbar.colorPower
+  s.bg.multiplier = L.C.colors.bgMultiplier
+  return s
+end
+L.F.CreateAdditionalPowerBar = CreateAdditionalPowerBar
+
 --CreatePowerBar
 local function CreatePowerBar(self)
   if not self.cfg.powerbar or not self.cfg.powerbar.enabled then return end
@@ -276,6 +311,7 @@ local function CreatePowerBar(self)
   local s = CreateFrame("StatusBar", nil, self)
   s:SetStatusBarTexture(L.C.textures.statusbarPower)
   s:SetSize(unpack(self.cfg.powerbar.size))
+  s:SetOrientation(self.cfg.powerbar.orientation or "HORIZONTAL")
   SetPoint(s,self,self.cfg.powerbar.point)
   --bg
   local bg = s:CreateTexture(nil, "BACKGROUND")
@@ -309,6 +345,7 @@ local function CreateCastBar(self)
   s:SetStatusBarTexture(L.C.textures.statusbar)
   s:SetFrameStrata("MEDIUM")
   s:SetSize(unpack(self.cfg.castbar.size))
+  s:SetOrientation(self.cfg.castbar.orientation or "HORIZONTAL")
   SetPoint(s,self,self.cfg.castbar.point)
   s:SetStatusBarColor(unpack(L.C.colors.castbar.default))
   --bg

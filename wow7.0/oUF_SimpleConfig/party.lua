@@ -33,7 +33,7 @@ L.C.party = {
         {"TOPRIGHT",-2,10},
       },
       size = 17,
-      tag = "[name] [leader]",
+      tag = "[name][oUF_Simple:leader][oUF_Simple:role]",
     },
     health = {
       enabled = true,
@@ -41,6 +41,7 @@ L.C.party = {
       size = 16,
       tag = "[oUF_Simple:health]",
     },
+    debuffHighlight = true,
   },
   --powerbar
   powerbar = {
@@ -53,7 +54,7 @@ L.C.party = {
   raidmark = {
     enabled = true,
     size = {18,18},
-    point = {"CENTER","LEFT",0,0},
+    point = {"CENTER","TOP",0,0},
   },
   --debuffs
   debuffs = {

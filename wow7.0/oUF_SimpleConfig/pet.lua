@@ -17,6 +17,7 @@ L.C.pet = {
   size = {130,26},
   point = {"TOPLEFT","oUF_SimplePlayer","BOTTOMLEFT",0,-14},
   scale = 1*L.C.globalscale,
+  frameVisibility = "[nocombat,nomod,@target,noexists][@pet,noexists] hide; show",
   --healthbar
   healthbar = {
     --health and absorb bar cannot be disabled, they match the size of the frame
@@ -34,12 +35,13 @@ L.C.pet = {
       align = "CENTER",
       tag = "[name]",
     },
+    debuffHighlight = true,
   },
   --raidmark
   raidmark = {
     enabled = true,
     size = {18,18},
-    point = {"CENTER","LEFT",0,0},
+    point = {"CENTER","TOP",0,0},
   },
   --castbar
   castbar = {

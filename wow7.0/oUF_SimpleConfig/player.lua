@@ -17,8 +17,10 @@ L.C.player = {
   size = {265,26},
   point = {"RIGHT",UIParent,"CENTER",-180,-180},
   scale = 1*L.C.globalscale,
+  frameVisibility = "[combat][mod][@target,exists][@vehicle,exists][overridebar][shapeshift][vehicleui][possessbar] show; hide",
   --healthbar
   healthbar = {
+    --orientation = "VERTICAL",
     --health and absorb bar cannot be disabled, they match the size of the frame
     colorClass = true,
     colorDispel = true,
@@ -39,6 +41,7 @@ L.C.player = {
       size = 16,
       tag = "[oUF_Simple:health]",
     },
+    debuffHighlight = true,
   },
   --powerbar
   powerbar = {
@@ -57,7 +60,7 @@ L.C.player = {
   raidmark = {
     enabled = true,
     size = {18,18},
-    point = {"CENTER","LEFT",0,0},
+    point = {"CENTER","TOP",0,0},
   },
   --castbar
   castbar = {
@@ -126,5 +129,13 @@ L.C.player = {
     growthY = "DOWN",
     disableCooldown = false,
     filter = "HELPFUL|RAID",
+  },
+  --addpowerbar (additional powerbar, like mana if a druid has rage display atm)
+  addpowerbar = {
+    enabled = true,
+    size = {26,35},
+    point = {"TOPRIGHT","TOPLEFT",-4,0},
+    orientation = "VERTICAL",
+    colorPower = true,
   },
 }
