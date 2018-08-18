@@ -131,7 +131,7 @@ L.C.player = {
   },
   --addpowerbar (additional powerbar, like mana if a druid has rage display atm)
   addpowerbar = {
-    enabled = true,
+    enabled = false,
     size = {26,35},
     point = {"TOPRIGHT","TOPLEFT",-4,0},
     orientation = "VERTICAL",
