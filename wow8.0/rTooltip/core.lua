@@ -47,7 +47,8 @@ cfg.backdrop.azeriteBorderColor = {1,0.3,0,1}
 
 --pos can be either a point table or a anchor string
 --cfg.pos = { "BOTTOMRIGHT", UIParent, "BOTTOMRIGHT", -10, 180 }
-cfg.pos = "ANCHOR_NONE" --"ANCHOR_CURSOR"
+--cfg.pos = "ANCHOR_NONE" --"ANCHOR_CURSOR"
+cfg.pos = { "BOTTOMLEFT", UIParent, "BOTTOM", 280, 10 }
 
 -----------------------------
 -- Functions
