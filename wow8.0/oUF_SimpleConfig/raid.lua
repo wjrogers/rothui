@@ -13,7 +13,7 @@ local A, L = ...
 -----------------------------
 
 L.C.raid = {
-  enabled = true,
+  enabled = false,
   size = {110,26},
   points = { --list of 8 points, one for each raid group
     {"TOPLEFT",20,-20},

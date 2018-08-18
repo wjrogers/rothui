@@ -15,7 +15,7 @@ local A, L = ...
 L.C.party = {
   enabled = true,
   size = {180,26},
-  point = {"TOPLEFT",20,-20},
+  point = {"BOTTOMLEFT","oUF_SimplePlayer","TOPLEFT",0,20},
   scale = 1*L.C.globalscale,
   --healthbar
   healthbar = {
@@ -46,7 +46,7 @@ L.C.party = {
   powerbar = {
     enabled = true,
     size = {180,5},
-    point = {"TOP","BOTTOM",0,-4}, --if no relativeTo is given the frame base will be the relativeTo reference
+    point = L.C.points.powerbar, --if no relativeTo is given the frame base will be the relativeTo reference
     colorPower = true,
   },
   --raidmark
@@ -58,25 +58,39 @@ L.C.party = {
   --debuffs
   debuffs = {
     enabled = true,
-    point = {"LEFT","RIGHT",5,0},
+    point = {"BOTTOMRIGHT","TOPRIGHT",-2,-2},
+    num = 5,
+    cols = 5,
+    size = 12,
+    spacing = 3,
+    initialAnchor = "BOTTOMRIGHT",
+    growthX = "LEFT",
+    growthY = "DOWN",
+    disableCooldown = true,
+  },
+  --buffs
+  buffs = {
+    enabled = true,
+    point = {"RIGHT","LEFT",-5,0},
     num = 5,
     cols = 5,
     size = 26,
     spacing = 5,
-    initialAnchor = "TOPLEFT",
-    growthX = "RIGHT",
+    initialAnchor = "TOPRIGHT",
+    growthX = "LEFT",
     growthY = "DOWN",
-    disableCooldown = true,
+    disableCooldown = false,
+    filter = "HELPFUL|PLAYER",
   },
   setup = {
     template = nil,
     visibility = "custom [group:party,nogroup:raid] show; hide",
-    showPlayer = true,
+    showPlayer = false,
     showSolo = false,
     showParty = true,
     showRaid = false,
-    point = "TOP",
+    point = "BOTTOM",
     xOffset = 0,
-    yOffset = -14,
+    yOffset = 20,
   },
 }

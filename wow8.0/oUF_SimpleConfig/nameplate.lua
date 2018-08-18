@@ -54,7 +54,7 @@ local function CustomFilter(...)
 end
 
 L.C.nameplate = {
-  enabled = true,
+  enabled = false,
   size = {130,26},
   point = {"CENTER"}, --relative to the nameplate base!
   scale = 1*UIParent:GetScale()*L.C.globalscale,--nameplates are not part of uiparent, they must be multiplied by uiparent scale!

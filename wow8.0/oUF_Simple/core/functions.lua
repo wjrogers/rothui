@@ -115,10 +115,10 @@ L.F.UpdateThreat = UpdateThreat
 --CreateText
 local function CreateText(self,font,size,outline,align,noshadow)
   local text = self:CreateFontString(nil, "ARTWORK") --"BORDER", "OVERLAY"
-  text:SetFont(font or STANDARD_TEXT_FONT, size or 14, outline or "OUTLINE")
+  text:SetFont(font or L.C.font.family, size or L.C.font.size, outline or L.C.font.outline)
   text:SetJustifyH(align or "LEFT")
   if not noshadow then
-    text:SetShadowColor(0,0,0,0.6)
+    text:SetShadowColor(0,0,0,1)
     text:SetShadowOffset(1,-1)
   end
   --fix some wierd bug
@@ -250,6 +250,11 @@ local function CreateHealthBar(self)
   s.colorThreatInvers = self.cfg.healthbar.colorThreatInvers
   s.bg.multiplier = L.C.colors.bgMultiplier
   s.frequentUpdates = self.cfg.healthbar.frequentUpdates
+  --range
+  self.Range = {
+    insideAlpha = 1,
+    outsideAlpha = 0.4
+  }
   --hooks
   s.PostUpdate = PostUpdateHealth
   if s.colorThreat then
@@ -290,7 +295,7 @@ local function CreatePowerBar(self)
   if not self.cfg.powerbar or not self.cfg.powerbar.enabled then return end
   --statusbar
   local s = CreateFrame("StatusBar", nil, self)
-  s:SetStatusBarTexture(L.C.textures.statusbar)
+  s:SetStatusBarTexture(L.C.textures.statusbarPower)
   s:SetSize(unpack(self.cfg.powerbar.size))
   s:SetOrientation(self.cfg.powerbar.orientation or "HORIZONTAL")
   SetPoint(s,self,self.cfg.powerbar.point)

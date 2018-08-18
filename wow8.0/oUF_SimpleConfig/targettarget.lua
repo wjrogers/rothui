@@ -45,7 +45,7 @@ L.C.targettarget = {
   },
   --debuffs
   debuffs = {
-    enabled = true,
+    enabled = false,
     point = {"TOPLEFT","BOTTOMLEFT",0,-5},
     num = 5,
     cols = 5,

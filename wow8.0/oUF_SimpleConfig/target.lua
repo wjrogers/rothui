@@ -15,7 +15,7 @@ local A, L = ...
 L.C.target = {
   enabled = true,
   size = {265,26},
-  point = {"LEFT",UIParent,"CENTER",120,-120},
+  point = {"LEFT",UIParent,"CENTER",180,-180},
   scale = 1*L.C.globalscale,
   --healthbar
   healthbar = {
@@ -48,7 +48,7 @@ L.C.target = {
   powerbar = {
     enabled = true,
     size = {265,5},
-    point = {"TOP","BOTTOM",0,-4}, --if no relativeTo is given the frame base will be the relativeTo reference
+    point = L.C.points.powerbar, --if no relativeTo is given the frame base will be the relativeTo reference
     colorPower = true,
   },
   --raidmark
@@ -59,7 +59,7 @@ L.C.target = {
   },
   --castbar
   castbar = {
-    enabled = true,
+    enabled = false,
     size = {265,26},
     point = {"BOTTOM","TOP",0,14},
     name = {
@@ -82,25 +82,25 @@ L.C.target = {
   },
   buffs = {
     enabled = true,
-    point = {"BOTTOMLEFT","RIGHT",10,5},
-    num = 32,
-    cols = 8,
-    size = 22,
+    point = {"LEFT","RIGHT",5,0},
+    num = 5,
+    cols = 5,
+    size = 26,
     spacing = 5,
-    initialAnchor = "BOTTOMLEFT",
+    initialAnchor = "TOPLEFT",
     growthX = "RIGHT",
-    growthY = "UP",
+    growthY = "DOWN",
     disableCooldown = true,
   },
   debuffs = {
     enabled = true,
-    point = {"TOPLEFT","RIGHT",10,-5},
-    num = 40,
-    cols = 8,
-    size = 22,
-    spacing = 5,
-    initialAnchor = "TOPLEFT",
-    growthX = "RIGHT",
+    point = {"BOTTOMRIGHT","TOPRIGHT",-2,-2},
+    num = 7,
+    cols = 7,
+    size = 12,
+    spacing = 3,
+    initialAnchor = "BOTTOMRIGHT",
+    growthX = "LEFT",
     growthY = "DOWN",
     disableCooldown = true,
   },
