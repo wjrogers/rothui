@@ -4,7 +4,6 @@
 ## Notes: Simple oUF layout
 ## Dependencies: oUF, rLib, oUF_SimpleConfig
 
-modules\DispelHighlight.lua
 modules\rAbsorbBar.lua
 modules\rClassBar.lua
 modules\oUF_DebuffHighlight.lua

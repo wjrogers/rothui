@@ -21,7 +21,6 @@ L.C.party = {
   healthbar = {
     --health and absorb bar cannot be disabled, they match the size of the frame
     colorDisconnected = true,
-    colorDispel = true,
     colorClass = true,
     colorReaction = true,
     colorHealth = true,
